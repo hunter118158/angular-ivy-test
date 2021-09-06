@@ -12,6 +12,7 @@ import { Component, Input } from '@angular/core';
       <p>The following paragraph is read only. Try clicking the button!</p>
     </ng-template>
     <p [contentEditable]="canEdit">{{ message }}</p>
+    <button *ngFor="let i of arr">{{ i.name }}</button>
   `,
   styles: [
     `
@@ -25,6 +26,12 @@ export class HelloComponent {
   @Input() name: string;
   message = "I'm read only!";
   canEdit = false;
+  arr = [
+    { name: 'xiao1' },
+    { name: 'xiao2' },
+    { name: 'xiao3' },
+    { name: 'xiao4' }
+  ];
 
   onEditClick() {
     this.canEdit = !this.canEdit;
